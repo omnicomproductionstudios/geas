@@ -20,17 +20,22 @@ tl.from(
   },
   1
 );
-const text = document.querySelector(".text");
-const words = text.innerText.split(" ");
-text.innerHTML = words.map((w) => `<span>${w}</span>`).join(" ");
-gsap.to(".text span", {
-  scrollTrigger: {
-    trigger: ".text",
-    start: "top 30%",
-    end: "bottom 150%",
-    scrub: true,
-  },
-  color: "#ff4d4d",
-  stagger: 0.2, // delay between words
-  ease: "none",
+document.querySelectorAll(".about-section p").forEach((p, i) => {
+  // Split text into words
+  const words = p.innerText.split(" ");
+  p.innerHTML = words.map((w) => `<span>${w}</span>`).join(" ");
+
+  // Animate word by word
+  gsap.to(p.querySelectorAll("span"), 1, {
+    scrollTrigger: {
+      trigger: p,
+      start: "top 20%", // when paragraph enters viewport
+      end: "bottom 20%", // until paragraph almost leaves
+      scrub: true,
+      pin: true,
+    },
+    color: "var(--color3)", // target color
+    stagger: 0.1, // delay between words
+    ease: "power1.inOut",
+  });
 });
