@@ -8,7 +8,7 @@ tl.from(
   1,
   {
     scale: 0,
-    rotate: 360,
+    rotate: 70,
     ease: "power1.inOut",
     onComplete: () => {
       tl.to([".copy1 h3, .copy1 p, .copy2 h3, .copy2 p, .copy2 .icon"], {
