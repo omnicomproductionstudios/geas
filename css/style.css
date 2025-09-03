@@ -10,6 +10,7 @@ html{
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
+
 img{
     max-width: 100%;
 }
@@ -19,6 +20,9 @@ body{
     line-height: 1;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    background-color: #fefefe;
 }
 .space_top{
     padding-top: var(--space);
@@ -411,33 +415,254 @@ justify-content: center;
 }
 
 .choose{
-    background: url('/images/desktopRLBG.svg') top left no-repeat;
-    background-size: cover;
-    z-index: -1;
+    position: relative;
+}
+.choose .container{
+    display: grid;
+}
+.choose .title{
+    position: sticky;
+    top: 10rem;
+}
+.choose .title h2{
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--color3);
+    padding: 2.5rem 0;
+    text-align: center;
 }
 .choose .card{
     border: 0px;
-    background-color: #ffccd7;
-    position: relative;
-    margin-left: 2.5rem;
+    background: linear-gradient(314deg, #fcf4fa 4.9%, #cbc5e1 97.99%);
     border-radius: 2.5rem;
-    min-height: 25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+    min-height: 30rem;
+    margin-bottom: 3rem;
+    position: sticky;
+    top:0rem;
+    padding: 3rem 5rem 5rem 5rem;
+    border-top: #fff solid 2px;
 }
-.choose .card::before{
+.choose .card img{
     position: absolute;
-    left: -2.5rem;
-    top: -2.5rem;
-    content: '';
-    width: 100%;
-    height: 100%;
+    right: 0px;
+    top: 3rem;
+    z-index: -1;
+    opacity: .2;
+}
+.choose .card:nth-child(2){
+    top: 20rem;
+}
+.choose .card:nth-child(3){
+    top: 29rem;
+}
+.choose .card:nth-child(4){
+    top: 38rem;
+}
+.choose .card:nth-child(5){
+    top: 47rem;
+}
+.choose .card:nth-child(6){
+    top: 56rem;
+}
+
+.choose .card:nth-child(odd){
     background: linear-gradient(313deg, rgb(255, 204, 215) -7.58%, rgb(252, 244, 250) 98.03%);
-    border-radius: 2.5rem;
-    z-index: -111;
 }
 .choose .card h3{
     font-size: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+.choose .card p{
+    font-size: 1.8rem;
+    line-height: 1.4;
+    padding-right: 20rem;
+    font-weight: 300;
+}
+/* Faq */
+.faq{
+    background: url('/images/desktopLRBG.svg') top left no-repeat;
+    background-size: cover;
+}
+.faq .title h2{
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--color3);
+    padding: 2.5rem 0;
+    text-align: center;
+}
+.accordion-item{
+    border-bottom: 0px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.accordion-header{
+    font-weight: 300;
+    border-radius: 5px;
+}
+.accordion-button{
+    font-size: 2rem;
+    background-color: #fabbd3;
+    color: var(--color3);
+    font-weight: 300;
+    padding: 2rem 3rem;
+    border-radius: 5px!important;
+}
+.accordion-button:hover{
+    background-color: var(--color2);
+}
+.accordion-button::after{
+    width: 3rem;
+    height: 3rem;
+    background-size: 3rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2346617b' viewBox='0 0 16 16'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+.accordion-button:not(.collapsed) {
+    color: var(--color3);
+    background-color: #fabbd3;
+    box-shadow: inherit;
+}
+.accordion-body{
+    padding: 2rem 3rem;
+    font-size: 1.6rem;
+}
+
+/* testimonials */
+.testimonial .title h2{
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--color3);
+    text-align: center;
+}
+.testimonial .swiper-wrapper{
+    padding: 10rem 0;
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 2rem;
+    color: #fff;
+}
+.swiper-button-next, .swiper-button-prev{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background-color: var(--color4);
+}
+.testimonial .swiper-slide{
+    display: flex;
+    justify-content: center;
+}
+.testi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: var(--color4); */
+    border-radius: 2rem;
+    position: relative;
+    min-height: 35rem;
+    max-width: 70rem;
+    margin-top: 7rem;
+    
+}
+.testi i{
+    font-size: 40rem;
+    position: absolute;
+    color: #f2f2f2;
+    z-index: -1;
+    transform: rotate(13deg);
+}
+.testi img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: -7rem;
+}
+.testi .copy{
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+.testi .name{
+    color: var(--color3);
+    font-size: 3.5rem;
+    font-weight: 300;
+}
+
+/* footer */
+.site_footer{
+    background: linear-gradient(180deg, #fefefe, #fff3f3 50%, #faf5ff);
+    padding: 6rem 0 3rem;
+    font-size: 1.4rem;
+}
+.site_footer .legal{
+    text-align: center;
+    border-top: #f5e7ec solid 1px;
+    padding-top: 2rem;
+    color: var(--color1);
+    margin-top: 5rem;
+}
+.site_footer .quick_link{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.site_footer .f-logo{
+    margin-bottom: 3rem;
+}
+.site_footer p{
+    font-size: 1.2rem;
+    color: var(--color1);
+    font-weight: 500;
+}
+.site_footer h4{
+    color: #000;
+    margin-bottom: 1.5rem;
+}
+.site_footer .quick_link li{
+    margin-bottom: 1rem;
+}
+.site_footer .quick_link a{
+    text-decoration: none;
+    color: var(--color3);
+    font-weight: 500;
+}
+.site_footer .contact{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.site_footer .contact li{
+    margin-bottom: 1rem;
+    color: var(--color1);
+}
+.site_footer .contact li span{
+    color: var(--color1);
+    font-weight: 500;
+}
+.site_footer .contact li a{
+    color: var(--color3);
+    text-decoration: none;
+}
+.site_footer .social{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    color: var(--);
+}
+.site_footer .social li a{
+    color: var(--color4);
+    font-size: 2.5rem;
+}
+
+.site_footer a{
+    transition: all .3s ease;
+}
+.site_footer a:hover, .site_footer .social li a:hover, .site_footer .contact li a:hover{
+    color: var(--color2);
 }

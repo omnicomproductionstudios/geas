@@ -100,3 +100,17 @@ document.querySelectorAll(".services .title h2").forEach((h2) => {
     },
   });
 });
+
+gsap.from(".accordion-item", {
+  y: 200,
+  ease: "power1.inOut",
+  stagger: 0.1,
+  scrollTrigger: {
+    trigger: ".faq",
+    start: "top 100%",
+    end: "bottom 0",
+    yoyo: true,
+    toggleActions: "play none none reverse",
+    // pin: true,
+  },
+});
