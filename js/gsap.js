@@ -1,9 +1,10 @@
-gsap.registerPlugin(ScrollTrigger);
-var tl = new gsap.timeline();
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
-tl.from(".site_header", 1, { y: -100, ease: "power1.inOut" });
-tl.staggerFrom(".nav-link", 1, { y: -100, ease: "power1.inOut" }, 0.07, 0);
+// Normal timeline animations that should play in sequence
+var tl = gsap.timeline();
+
 tl.from(".about-arrow", 1, { y: "-100%", ease: "power1.inOut" });
+
 tl.from(
   [".copy1, .copy2"],
   1,
@@ -20,22 +21,82 @@ tl.from(
   },
   1
 );
-document.querySelectorAll(".about-section p").forEach((p, i) => {
-  // Split text into words
-  const words = p.innerText.split(" ");
-  p.innerHTML = words.map((w) => `<span>${w}</span>`).join(" ");
 
-  // Animate word by word
-  gsap.to(p.querySelectorAll("span"), 1, {
+// Split text paragraphs
+document.querySelectorAll(".about-section p").forEach((p) => {
+  const chars = p.innerText.split("").map((char) => {
+    if (char === " ") {
+      return `<span style="white-space:pre;"> </span>`;
+    }
+    return `<span>${char}</span>`;
+  });
+
+  p.innerHTML = chars.join("");
+
+  gsap.to(p.querySelectorAll("span"), {
+    color: "var(--color3)",
+    stagger: 1,
+    ease: "power1.inOut",
     scrollTrigger: {
       trigger: p,
-      start: "top 20%", // when paragraph enters viewport
-      end: "bottom 20%", // until paragraph almost leaves
+      start: "top 20%",
+      end: "bottom -20%",
       scrub: true,
       pin: true,
     },
-    color: "var(--color3)", // target color
-    stagger: 0.1, // delay between words
+  });
+});
+
+// Photo animation
+gsap.to(".photo", 4, {
+  width: "100vw",
+  height: "100vh",
+  ease: "power3.inOut",
+  scrollTrigger: {
+    trigger: ".image-wrapper",
+    start: "top 23%",
+    end: "bottom -50%",
+    scrub: true,
+    pin: true,
+  },
+});
+
+// Card animation (only when reaching `.vision` section)
+gsap.from(".vision .card", {
+  rotate: 70,
+  autoAlpha: 0,
+  scale: 0.2,
+  ease: "power1.inOut",
+  stagger: 0.3,
+  scrollTrigger: {
+    trigger: ".vision",
+    start: "top -5%",
+    end: "bottom 0",
+    toggleActions: "play none none reverse",
+    pin: true,
+  },
+});
+
+document.querySelectorAll(".services .title h2").forEach((h2) => {
+  const words = h2.innerText.split(" ").map((word) => {
+    const chars = word
+      .split("")
+      .map((char) => `<span class="char">${char}</span>`)
+      .join("");
+    return `<span class="word">${chars}</span>`; // wrap whole word
+  });
+
+  h2.innerHTML = words.join(" "); // put space back between words
+
+  gsap.to(h2.querySelectorAll(".char"), {
+    color: "var(--color3)",
+    stagger: 0.1,
     ease: "power1.inOut",
+    scrollTrigger: {
+      trigger: ".services",
+      start: "top 0",
+      end: "bottom 100%",
+      scrub: true,
+    },
   });
 });
