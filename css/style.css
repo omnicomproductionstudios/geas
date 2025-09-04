@@ -486,6 +486,88 @@ body{
     padding-right: 20rem;
     font-weight: 300;
 }
+
+/* Understanding */
+.understanding{
+    background: linear-gradient(180deg, #faf5ff, #fff3f3 77.67%, #fefefe) no-repeat bottom;
+}
+.understanding .title{
+    margin-bottom: 4rem;
+}
+.understanding .title h2{
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--color3);
+    text-align: center;
+}
+.understanding .title p{
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--color1);
+    font-weight: 500;
+}
+.understanding .card{
+    border: 0px;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #fff;
+    transition: transform .5s ease;
+    cursor: pointer;
+    background-color: inherit;
+}
+.understanding .card:hover {
+  transform: translateY(-8px);
+}
+.understanding .card .image{
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+.understanding .card .image .icon{
+    background: rgba(255, 255, 255, 0.15); /* translucent white */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);           /* the magic! */
+    -webkit-backdrop-filter: blur(3px);   /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--color2);
+    opacity: 0;
+    transition: all 0.3s ease;
+    /* transform: translate(-50%, -50%) scale(0.8); */
+    transition: all .5s ease;
+}
+.understanding .card .image .icon a{
+    color: currentColor;
+    text-decoration: none;
+}
+.understanding .card:hover .image .icon{
+    opacity: 1;
+  transform: scale(1.2);
+}
+
+.understanding .card h3{
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    color: var(--color3);
+}
+.understanding .card h3 a{
+    text-decoration: none;
+    color: currentColor;
+    transition: all .3s ease;
+}
+.understanding .card:hover h3 a{
+    color: var(--color2);
+}
 /* Faq */
 .faq{
     background: url('/images/desktopLRBG.svg') top left no-repeat;

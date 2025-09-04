@@ -78,6 +78,22 @@ tl.to(".photo", {
 //   },
 // });
 
+gsap.utils.toArray(".vision .card").forEach((card, i) => {
+  gsap.from(card, {
+    y: 100,
+    autoAlpha: 0,
+    ease: "power4.inOut",
+    scrollTrigger: {
+      trigger: card,
+      start: "top 80%", // when card enters viewport
+      end: "top 50%",
+      toggleActions: "play none none reverse",
+      scrub: false, // let easing work
+      // markers: true,
+    },
+  });
+});
+
 document.querySelectorAll(".services .title h2").forEach((h2) => {
   const words = h2.innerText.split(" ").map((word) => {
     const chars = word
@@ -142,4 +158,19 @@ tl.to(".home-about_img-text", 1, {
     toggleActions: "play none none reverse",
     scrub: 2,
   },
+});
+gsap.utils.toArray(".understanding .card").forEach((card, i) => {
+  gsap.from(card, {
+    y: 100,
+    autoAlpha: 0,
+    ease: "power4.inOut",
+    scrollTrigger: {
+      trigger: card,
+      start: "top 80%", // when card enters viewport
+      end: "top 50%",
+      toggleActions: "play none none reverse",
+      scrub: false, // let easing work
+      // markers: true,
+    },
+  });
 });
