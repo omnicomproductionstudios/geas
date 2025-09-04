@@ -2,7 +2,6 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 // Normal timeline animations that should play in sequence
 var tl = gsap.timeline();
-
 tl.from(".about-arrow", 1, { y: "-100%", ease: "power1.inOut" });
 
 tl.from(
@@ -33,7 +32,7 @@ document.querySelectorAll(".about-section p").forEach((p) => {
 
   p.innerHTML = chars.join("");
 
-  gsap.to(p.querySelectorAll("span"), {
+  tl.to(p.querySelectorAll("span"), {
     color: "var(--color3)",
     stagger: 1,
     ease: "power1.inOut",
@@ -48,34 +47,36 @@ document.querySelectorAll(".about-section p").forEach((p) => {
 });
 
 // Photo animation
-gsap.to(".photo", 4, {
+tl.to(".photo", {
   width: "100vw",
-  height: "100vh",
+  height: "95vh",
   ease: "power3.inOut",
   scrollTrigger: {
     trigger: ".image-wrapper",
-    start: "top 23%",
+    start: "top 20%",
     end: "bottom -50%",
-    scrub: true,
-    pin: true,
+    scrub: 2,
+    pin: ".image-wrapper", // 👈 pin the wrapper
+    pinSpacing: true,
   },
 });
 
 // Card animation (only when reaching `.vision` section)
-gsap.from(".vision .card", {
-  rotate: 70,
-  autoAlpha: 0,
-  scale: 0.2,
-  ease: "power1.inOut",
-  stagger: 0.3,
-  scrollTrigger: {
-    trigger: ".vision",
-    start: "top -5%",
-    end: "bottom 0",
-    toggleActions: "play none none reverse",
-    pin: true,
-  },
-});
+// tl.from(".vision .card", {
+//   rotate: 70,
+//   autoAlpha: 0,
+//   scale: 0.2,
+//   ease: "power1.inOut",
+//   stagger: 0.1,
+//   scrollTrigger: {
+//     trigger: ".vision",
+//     start: "top 0",
+//     end: "bottom 0",
+//     toggleActions: "play none none reverse",
+//     pin: true,
+//     scrub: 3,
+//   },
+// });
 
 document.querySelectorAll(".services .title h2").forEach((h2) => {
   const words = h2.innerText.split(" ").map((word) => {
@@ -88,7 +89,7 @@ document.querySelectorAll(".services .title h2").forEach((h2) => {
 
   h2.innerHTML = words.join(" "); // put space back between words
 
-  gsap.to(h2.querySelectorAll(".char"), {
+  tl.to(h2.querySelectorAll(".char"), {
     color: "var(--color3)",
     stagger: 0.1,
     ease: "power1.inOut",
@@ -112,5 +113,32 @@ gsap.from(".accordion-item", {
     yoyo: true,
     toggleActions: "play none none reverse",
     // pin: true,
+  },
+});
+
+tl.to(".home-about_component", {
+  width: "100vw",
+  height: "100vh",
+  ease: "power1.inOut",
+  scrollTrigger: {
+    trigger: ".home-about_component",
+    start: "top 10%",
+    end: "bottom -100%",
+    toggleActions: "play none none reverse",
+    scrub: true,
+    // markers: true,
+  },
+});
+
+tl.to(".home-about_img-text", 1, {
+  autoAlpha: 1,
+  y: 0,
+  ease: "power1.inOut",
+  scrollTrigger: {
+    trigger: ".home-about_img-text",
+    start: "top -50%",
+    end: "bottom 0",
+    toggleActions: "play none none reverse",
+    scrub: 2,
   },
 });

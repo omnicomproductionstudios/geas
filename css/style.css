@@ -280,22 +280,23 @@ body{
 
 .image-wrapper {
   width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 12px;
 }
-
 .image-wrapper .photo {
   width: 60%;
   border-radius: 12px;
-   z-index: 1;
+    z-index: 1;
 }
 
 .vision{
     /* background: url('/images/desktopLRBG.svg') left top no-repeat; */
     background:linear-gradient(180deg,#faf5ff,#fff3f3 77.67%,#fefefe) no-repeat bottom;
     background-size: cover;
-    padding: 15rem 0;
+    padding: 25rem 0 15rem;
 }
 .vision .card{
     border: 0px;
@@ -591,6 +592,71 @@ justify-content: center;
     font-weight: 300;
 }
 
+/*  */
+.home-about_wrapper {
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 200rem;
+    display: flex;
+    position: relative;
+}
+.home-about_sticky {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+.home-about_component {
+    padding: 1.6rem;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    height: 10vh;
+    transition: padding .6s;
+    display: flex;
+    position: relative;
+}
+.home-about_heading {
+    font-size: 6rem;
+    white-space: nowrap;
+    position: absolute;
+}
+.home-about_heading._1 {
+    right: calc(100% + .25rem);
+}
+.home-about_heading._2 {
+    left: calc(100% + .25rem);
+}
+.home-about_img-text{
+    position: absolute;
+    color: #fff;
+    font-size: 6rem;
+    white-space: nowrap;
+}
+.home-about_img-wrap {
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    transition: border-radius .6s;
+    display: flex;
+    position: relative;
+    overflow: clip;
+}
+.home-about_img {
+    object-fit: cover;
+    width: 100vw;
+    min-width: 100vw;
+    max-width: none;
+    height: 100vh;
+    min-height: 100vh;
+}
 /* footer */
 .site_footer{
     background: linear-gradient(180deg, #fefefe, #fff3f3 50%, #faf5ff);
