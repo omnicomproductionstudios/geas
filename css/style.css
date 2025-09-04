@@ -321,7 +321,13 @@ body{
     margin: 0 auto;
     margin-bottom: 2rem;
     background: linear-gradient(180deg, #fefefe, #fff3f3 50%, #faf5ff);
+    transition: all 1s ease;
 }
+.vision .card:hover img {
+  transform: rotate(360deg);
+}
+
+
 .vision .card.two img{
     border: 1px solid #cbc5e1;
     border-bottom-width: 5px;
@@ -446,7 +452,7 @@ body{
 .choose .card img{
     position: absolute;
     right: 0px;
-    top: 3rem;
+    bottom: -2rem;
     z-index: -1;
     opacity: .2;
 }
